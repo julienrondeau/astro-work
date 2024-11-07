@@ -1,0 +1,35 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+	<main>
+		<h1>{frontmatter.title}</h1>
+		<p>
+			<small>
+				Written by {frontmatter.author} on {
+					frontmatter.pubDate.toString().slice(0, 10)
+				}
+			</small>
+		</p>
+
+		<img
+			src={frontmatter.image.url}
+			width="300"
+			alt={frontmatter.image.alt}
+		/>
+
+		<div class="tags">
+			<span>Tags : </span>
+			{
+				frontmatter.tags.map((tag) => (
+					<a href={`/tags/${tag}`} class="tag">
+						{tag}
+					</a>
+				))
+			}
+		</div>
+		<slot />
+	</main>
+</Layout>
