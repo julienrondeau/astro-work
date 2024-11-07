@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Greeting from "../components/Greeting";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -9,6 +8,5 @@ import Greeting from "../components/Greeting";
 		<p class="instructions">
 			This is a test project in order to learn static site dev with Astro.
 		</p>
-		<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
 	</main>
 </Layout>

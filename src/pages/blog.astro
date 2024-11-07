@@ -2,20 +2,22 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 
-const allPosts = await Astro.glob("./posts/*.md");
+// const allPosts = await Astro.glob("./posts/*.md");
+
+const res = await fetch("http://step.local/wp-json/wp/v2/posts?&_embed");
+const posts = await res.json();
 ---
 
 <Layout title="Blog">
 	<main>
 		<h1>Welcome to my <span class="text-gradient">Blog</span></h1>
-		<p>This is where I will post about my journey learning Astro.</p>
 
 		<ul class="link-card-grid">
 			{
-				allPosts.map((post) => (
+				posts.map((post) => (
 					<Card
-						title={post.frontmatter.title}
-						href={post.url}
+						title={post.title.rendered}
+						href={`/posts/${post.slug}`}
 						body=""
 					/>
 				))

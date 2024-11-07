@@ -106,12 +106,13 @@ main p {
 .instructions strong {
 	color: rgb(var(--accent-light));
 }
-ul,
+
 .link-card-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 	gap: 2rem;
 	padding: 0;
+	list-style: none;
 }
 
 .link-card {
@@ -167,4 +168,16 @@ html.dark {
 
 .dark .nav-links a {
 	color: #fff;
+}
+article {
+	text-align: center;
+}
+article h1,
+article p {
+	color: white;
+	max-width: 800px;
+	margin-inline: auto;
+}
+article img {
+	margin: 2rem auto;
 }
